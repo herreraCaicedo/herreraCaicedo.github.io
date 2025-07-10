@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alejandro Herrera-Caicedo</title>
+
+  <!-- Gothic Title Font -->
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -12,167 +16,362 @@
     }
 
     body {
+      background-color: #0a0a0a;
+      color: #e5e5e5;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 80px 20px;
       line-height: 1.6;
-      background-color: #ffffff;
-      color: #333333;
       font-size: 15px;
+      transition: all 0.4s ease-in-out;
     }
 
     h1 {
       font-size: 1.8rem;
-      font-weight: 400;
-      color: #000000;
-      margin-bottom: 60px;
-      letter-spacing: -0.01em;
+      color: #ffffff;
+      margin-bottom: 50px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .profile-image {
+      width: 400px;
+      height: 280px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin: 0 auto 10px auto;
+      display: none; /* Hidden by default */
+      border: 2px solid #fffd38;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .image-reference {
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      color: #71717a;
+      text-align: center;
+      margin-bottom: 30px;
+      display: none; /* Hidden by default */
     }
 
     nav {
       display: flex;
-      gap: 30px;
+      gap: 20px;
       margin-bottom: 60px;
     }
 
     nav a {
       text-decoration: none;
-      color: #666666;
+      color: #71717a;
       font-size: 14px;
       transition: color 0.2s ease;
     }
 
     nav a:hover,
     nav a.active {
-      color: #000000;
+      color: #ffffff;
     }
 
-    .intro {
+    .intro, .contact {
       margin-bottom: 40px;
     }
 
-    .intro p {
-      color: #333333;
-      margin-bottom: 0;
-    }
-
-    .contact {
-      margin-bottom: 40px;
-    }
-
-    .contact p {
-      color: #333333;
-      margin-bottom: 4px;
-      font-size: 14px;
+    .intro p, .contact p {
+      color: #a1a1aa;
     }
 
     .contact a {
-      color: #000000;
+      color: #ffffff;
       text-decoration: none;
-      border-bottom: 1px solid #cccccc;
+      border-bottom: 1px solid #262626;
     }
 
     .contact a:hover {
-      border-bottom-color: #000000;
+      border-bottom-color: #ffffff;
     }
 
     .footer {
       margin-top: 60px;
       font-size: 12px;
-      color: #666666;
+      color: #71717a;
+      text-transform: uppercase;
     }
 
-    a {
-      color: #000000;
-      text-decoration: none;
+    .toggle-btn {
+      margin-left: auto;
+      padding: 4px 8px;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      background-color: #fffd38;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
     }
 
-    a:hover {
-      opacity: 0.7;
+    .toggle-btn:hover {
+      background-color: #000;
+      color: #fffd38;
+      border: 1px solid #fffd38;
     }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #0a0a0a;
-        color: #e5e5e5;
-      }
+    /* Light Mode Styles */
+    .light {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
 
-      h1 {
-        color: #ffffff;
-      }
+    .light h1 {
+      color: #000000 !important;
+    }
 
-      nav a {
-        color: #71717a;
-      }
+    .light nav a {
+      color: #666666 !important;
+    }
 
-      nav a:hover,
-      nav a.active {
-        color: #ffffff;
-      }
+    .light nav a:hover,
+    .light nav a.active {
+      color: #000000 !important;
+    }
 
-      .intro p {
-        color: #e5e5e5;
-      }
+    .light .intro p,
+    .light .contact p {
+      color: #333333 !important;
+    }
 
-      .contact p {
-        color: #a1a1aa;
-      }
+    .light .contact a {
+      color: #000000 !important;
+      border-bottom: 1px solid #cccccc !important;
+    }
 
-      .contact a {
-        color: #ffffff;
-        border-bottom-color: #262626;
-      }
+    .light .contact a:hover {
+      border-bottom-color: #000000 !important;
+    }
 
-      .contact a:hover {
-        border-bottom-color: #ffffff;
-      }
+    .light .footer {
+      color: #666666 !important;
+    }
 
-      .footer {
-        color: #71717a;
-      }
+    .light .toggle-btn {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
 
-      a {
-        color: #ffffff;
-      }
+    .light .toggle-btn:hover {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+    }
 
-      a:hover {
-        border-bottom-color: #ffffff;
-      }
+    .light .profile-image {
+      border: 2px solid #000000 !important;
+      display: none !important; /* Hidden in light mode too */
+    }
+
+    .light .image-reference {
+      color: #666666 !important;
+      display: none !important; /* Hidden in light mode too */
+    }
+
+    /* Progressive body distortion effects */
+    .distort-1 { 
+      transform: skew(0.2deg, 0.1deg);
+      filter: contrast(1.05);
+    }
+    .distort-2 { 
+      transform: skew(0.4deg, 0.2deg);
+      filter: contrast(1.1) brightness(1.05);
+    }
+    .distort-3 { 
+      transform: skew(0.6deg, 0.3deg);
+      filter: contrast(1.15) brightness(1.1) saturate(1.1);
+    }
+    .distort-4 { 
+      transform: skew(0.8deg, 0.4deg);
+      filter: contrast(1.2) brightness(1.15) saturate(1.2);
+    }
+    .distort-5 { 
+      transform: skew(1deg, 0.5deg);
+      filter: contrast(1.25) brightness(1.2) saturate(1.3) hue-rotate(10deg);
+    }
+    .distort-6 { 
+      transform: skew(1.2deg, 0.6deg);
+      filter: contrast(1.3) brightness(1.25) saturate(1.4) hue-rotate(20deg);
+    }
+    .distort-7 { 
+      transform: skew(1.4deg, 0.7deg);
+      filter: contrast(1.35) brightness(1.3) saturate(1.5) hue-rotate(30deg);
+    }
+    .distort-8 { 
+      transform: skew(1.6deg, 0.8deg);
+      filter: contrast(1.4) brightness(1.35) saturate(1.6) hue-rotate(45deg);
+    }
+
+    /* ☠️ Doom Mode (MÖRK BORG) */
+    /* Progressive jiggle effects for all elements */
+    .jiggle-1 { 
+      animation: jiggle-1 0.3s infinite ease-in-out; 
+      filter: blur(0.1px) hue-rotate(10deg);
+    }
+    .jiggle-2 { 
+      animation: jiggle-2 0.25s infinite ease-in-out; 
+      filter: blur(0.2px) hue-rotate(20deg) contrast(1.1);
+    }
+    .jiggle-3 { 
+      animation: jiggle-3 0.2s infinite ease-in-out; 
+      filter: blur(0.3px) hue-rotate(30deg) contrast(1.2) saturate(1.2);
+    }
+    .jiggle-4 { 
+      animation: jiggle-4 0.15s infinite ease-in-out; 
+      filter: blur(0.4px) hue-rotate(45deg) contrast(1.3) saturate(1.3);
+    }
+    .jiggle-5 { 
+      animation: jiggle-5 0.12s infinite ease-in-out; 
+      filter: blur(0.6px) hue-rotate(60deg) contrast(1.4) saturate(1.4) brightness(1.1);
+    }
+    .jiggle-6 { 
+      animation: jiggle-6 0.1s infinite ease-in-out; 
+      filter: blur(0.8px) hue-rotate(90deg) contrast(1.5) saturate(1.5) brightness(1.2);
+    }
+    .jiggle-7 { 
+      animation: jiggle-7 0.08s infinite ease-in-out; 
+      filter: blur(1px) hue-rotate(120deg) contrast(1.6) saturate(1.6) brightness(1.3);
+    }
+    .jiggle-8 { 
+      animation: jiggle-8 0.06s infinite ease-in-out; 
+      filter: blur(1.5px) hue-rotate(180deg) contrast(1.8) saturate(1.8) brightness(1.4) invert(0.1);
+    }
+
+    @keyframes jiggle-1 {
+    0%   { transform: translateY(0) translateX(0); }
+    25%  { transform: translateY(-0.5px) translateX(0.5px); }
+    50%  { transform: translateY(0.5px) translateX(-0.5px); }
+    75%  { transform: translateY(-0.5px) translateX(0.5px); }
+    100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes jiggle-2 {
+    0%   { transform: translateY(0) translateX(0); }
+    25%  { transform: translateY(-0.8px) translateX(0.8px); }
+    50%  { transform: translateY(0.8px) translateX(-0.8px); }
+    75%  { transform: translateY(-0.8px) translateX(0.8px); }
+    100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes jiggle-3 {
+    0%   { transform: translateY(0) translateX(0); }
+    25%  { transform: translateY(-1px) translateX(1px); }
+    50%  { transform: translateY(1px) translateX(-1px); }
+    75%  { transform: translateY(-1px) translateX(1px); }
+    100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes jiggle-4 {
+    0%   { transform: translateY(0) translateX(0); }
+    25%  { transform: translateY(-1.3px) translateX(1.3px); }
+    50%  { transform: translateY(1.3px) translateX(-1.3px); }
+    75%  { transform: translateY(-1.3px) translateX(1.3px); }
+    100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes jiggle-5 {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+    25%  { transform: translateY(-1.5px) translateX(1.5px) rotate(0.5deg); }
+    50%  { transform: translateY(1.5px) translateX(-1.5px) rotate(-0.5deg); }
+    75%  { transform: translateY(-1.5px) translateX(1.5px) rotate(0.5deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+
+    @keyframes jiggle-6 {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+    25%  { transform: translateY(-1.8px) translateX(1.8px) rotate(0.8deg); }
+    50%  { transform: translateY(1.8px) translateX(-1.8px) rotate(-0.8deg); }
+    75%  { transform: translateY(-1.8px) translateX(1.8px) rotate(0.8deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+
+    @keyframes jiggle-7 {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+    25%  { transform: translateY(-2px) translateX(2px) rotate(1deg); }
+    50%  { transform: translateY(2px) translateX(-2px) rotate(-1deg); }
+    75%  { transform: translateY(-2px) translateX(2px) rotate(1deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+
+    @keyframes jiggle-8 {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+    25%  { transform: translateY(-2.5px) translateX(2.5px) rotate(1.5deg); }
+    50%  { transform: translateY(2.5px) translateX(-2.5px) rotate(-1.5deg); }
+    75%  { transform: translateY(-2.5px) translateX(2.5px) rotate(1.5deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+
+    .doom {
+      background-color: #000000 !important;
+      color: #fffd38 !important;
+      font-family: Consolas, monospace !important;
+    }
+
+    .doom h1 {
+    font-family: 'UnifrakturCook', cursive !important;
+    font-size: 3rem !important;
+    color: #fffd38 !important;
+    text-shadow: 2px 2px 0 #ff00ff !important;
+    text-align: center !important; 
+    }
+
+    .doom .profile-image {
+      display: block !important; /* Show only in doom mode */
+    }
+
+    .doom .image-reference {
+      display: block !important; /* Show only in doom mode */
+      color: #888800 !important;
+    }
+
+    .doom nav a {
+      color: #fffd38 !important;
+      font-family: Consolas, monospace !important;
+      border: 1px solid #fffd38;
+      padding: 2px 6px;
+      text-transform: uppercase;
+    }
+
+    .doom nav a:hover,
+    .doom nav a.active {
+      background-color: #fffd38 !important;
+      color: #000000 !important;
+    }
+
+    .doom .intro p,
+    .doom .contact p,
+    .doom .footer {
+      color: #fffd38 !important;
+      font-family: Consolas, monospace !important;
+    }
+
+    .doom .contact a {
+      color: #fffd38 !important;
+      border-bottom: 1px dashed #fffd38 !important;
+    }
+
+    .doom .contact a:hover {
+      color: #000 !important;
+      background-color: #fffd38 !important;
+    }
+
+    .doom .footer {
+      color: #888800 !important;
     }
 
     @media (max-width: 640px) {
-      body {
-        padding: 60px 16px;
-      }
-
-      h1 {
-        font-size: 1.5rem;
-        margin-bottom: 40px;
-      }
-
-      nav {
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-
-      .intro {
-        margin-bottom: 30px;
-      }
-
-      .contact {
-        margin-bottom: 30px;
-      }
-
-      .footer {
-        margin-top: 40px;
-      }
-
-      /* Stack side by side layout on mobile */
-      .intro-contact {
-        flex-direction: column !important;
-        gap: 20px !important;
-      }
+      body { padding: 60px 16px; }
+      h1 { font-size: 2.2rem; }
+      nav { gap: 10px; flex-wrap: wrap; }
+      .intro-contact { flex-direction: column !important; gap: 20px !important; }
+      .profile-image { width: 300px; height: 200px; }
     }
   </style>
 </head>
@@ -183,10 +382,17 @@
     <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="CV.pdf">CV</a>
+    <button class="toggle-btn" onclick="toggleLightMode()">Light</button>
   </nav>
 
+  <img src="dore.jpg" alt="Alejandro Herrera-Caicedo" class="profile-image">
+  <div class="image-reference">
+    <div>'The Rime of the Ancient Mariner' by S.T. Coleridge, published by Harper and Brothers, New York</div>
+    <div>Gustave Doré</div>
+  </div>
+
   <h1>Alejandro Herrera-Caicedo</h1>
-  
+
   <div class="intro-contact" style="display: flex; gap: 40px; align-items: flex-start;">
     <div class="intro">
       <p>
@@ -195,9 +401,7 @@
     </div>
 
     <div class="contact">
-      <p>
-        <a href="mailto:herreracaice@wisc.edu">herreracaice@wisc.edu</a>
-      </p>
+      <p><a href="mailto:herreracaice@wisc.edu">herreracaice@wisc.edu</a></p>
       <p>7439 Social Sciences</p>
       <p>UW Madison</p>
     </div>
@@ -207,5 +411,98 @@
     Last updated: June 2025
   </div>
 
-</body>
-</html>
+<audio id="doomSound" preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2023/04/21/audio_613db5a3b6.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const doomCode = "morkborg";
+  let inputBuffer = "";
+
+  // ✅ Restore mode on load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedMode = localStorage.getItem("mode");
+    if (savedMode === "doom") {
+      document.body.classList.add("doom");
+    } else if (savedMode === "light") {
+      document.body.classList.add("light");
+      const toggleBtn = document.querySelector('.toggle-btn');
+      if (toggleBtn) toggleBtn.textContent = 'Dark';
+    }
+  });
+
+  function toggleLightMode() {
+    const isLight = document.body.classList.toggle('light');
+    const toggleBtn = document.querySelector('.toggle-btn');
+    if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
+
+    if (isLight) {
+      document.body.classList.remove("doom");
+      localStorage.setItem("mode", "light");
+    } else {
+      localStorage.removeItem("mode"); // fallback to default
+    }
+  }
+
+  function toggleDoomMode() {
+    document.body.classList.toggle('doom');
+    document.body.classList.remove('light');
+    localStorage.setItem("mode", document.body.classList.contains('doom') ? "doom" : "");
+
+    clearJiggle();
+    playDoomSound();
+
+    const toggleBtn = document.querySelector('.toggle-btn');
+    if (toggleBtn) toggleBtn.textContent = "Light";
+  }
+
+  function playDoomSound() {
+    const doomSound = document.getElementById("doomSound");
+    if (doomSound) {
+      doomSound.currentTime = 0;
+      doomSound.play().catch(() => {});
+    }
+  }
+
+  function updateJiggle() {
+    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li");
+
+    allElements.forEach(el => {
+      el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
+    });
+
+    document.body.classList.remove("distort-1", "distort-2", "distort-3", "distort-4", "distort-5", "distort-6", "distort-7", "distort-8");
+
+    if (inputBuffer.length > 0 && doomCode.startsWith(inputBuffer)) {
+      const jiggleClass = `jiggle-${inputBuffer.length}`;
+      const distortClass = `distort-${inputBuffer.length}`;
+
+      allElements.forEach(el => el.classList.add(jiggleClass));
+      document.body.classList.add(distortClass);
+    }
+  }
+
+  function clearJiggle() {
+    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li");
+    allElements.forEach(el => {
+      el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
+    });
+
+    document.body.classList.remove("distort-1", "distort-2", "distort-3", "distort-4", "distort-5", "distort-6", "distort-7", "distort-8");
+  }
+
+  document.addEventListener("keydown", (e) => {
+    const key = e.key.toLowerCase();
+    if (key.length === 1 && key.match(/[a-z]/i)) {
+      inputBuffer += key;
+      inputBuffer = inputBuffer.slice(-doomCode.length);
+      updateJiggle();
+
+      if (inputBuffer === doomCode) {
+        toggleDoomMode();
+        inputBuffer = "";
+        clearJiggle();
+      }
+    }
+  });
+</script>

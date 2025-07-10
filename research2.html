@@ -108,12 +108,71 @@
       border: none;
       cursor: pointer;
       text-transform: uppercase;
+      transition: all 0.2s ease;
     }
 
     .toggle-btn:hover {
       background-color: #000;
       color: #fffd38;
       border: 1px solid #fffd38;
+    }
+
+    /* Light Mode Styles */
+    .light {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+
+    .light h1 {
+      color: #000000 !important;
+    }
+
+    .light nav a {
+      color: #666666 !important;
+    }
+
+    .light nav a:hover,
+    .light nav a.active {
+      color: #000000 !important;
+    }
+
+    .light .intro p,
+    .light .contact p {
+      color: #333333 !important;
+    }
+
+    .light .contact a {
+      color: #000000 !important;
+      border-bottom: 1px solid #cccccc !important;
+    }
+
+    .light .contact a:hover {
+      border-bottom-color: #000000 !important;
+    }
+
+    .light .footer {
+      color: #666666 !important;
+    }
+
+    .light .toggle-btn {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .light .toggle-btn:hover {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+    }
+
+    .light .profile-image {
+      border: 2px solid #000000 !important;
+      display: none !important; /* Hidden in light mode too */
+    }
+
+    .light .image-reference {
+      color: #666666 !important;
+      display: none !important; /* Hidden in light mode too */
     }
 
     /* Progressive body distortion effects */
@@ -323,29 +382,40 @@
     <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="CV.pdf">CV</a>
+    <button class="toggle-btn" onclick="toggleLightMode()">Light</button>
   </nav>
 
   <img src="dore.jpg" alt="Alejandro Herrera-Caicedo" class="profile-image">
   <div class="image-reference">
-    <div>Scene for 'The Rime of the Ancient Mariner' by S.T. Coleridge</div>
+    <div>'The Rime of the Ancient Mariner' by S.T. Coleridge, published by Harper and Brothers, New York</div>
     <div>Gustave Doré</div>
   </div>
 
-  <h1>Alejandro Herrera-Caicedo</h1>
+   <h2>Working Papers</h2>
 
-  <div class="intro-contact" style="display: flex; gap: 40px; align-items: flex-start;">
-    <div class="intro">
-      <p>
-        Fourth year student in Economics at UW-Madison studying industrial organization, labor economics, and public policy.
-      </p>
+  <article class="paper">
+    <div class="status">Under Review</div>
+    
+    <h3 class="paper-title">Collusion through Common Leadership</h3>
+    
+    <div class="paper-authors">
+    With 
+        <a href="https://sites.google.com/view/jessicajeffers/home?authuser=0" target="_blank" rel="noopener">Jessica Jeffers</a>
+    & 
+        <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
     </div>
 
-    <div class="contact">
-      <p><a href="mailto:herreracaice@wisc.edu">herreracaice@wisc.edu</a></p>
-      <p>7439 Social Sciences</p>
-      <p>UW Madison</p>
+    <div class="paper-link">
+      <a href="https://www.nber.org/papers/w33866" target="_blank">
+        NBER Working Paper No. 33866
+      </a>
     </div>
-  </div>
+
+    <div class="paper-abstract">
+      This paper studies whether common leadership, defined as two firms sharing executives or board directors, contributes to collusion. Using an explicit measure of labor market collusion from unsealed court evidence, we find that the probability of collusion between two firms increases by 12 percentage points after the onset of common leadership, compared to a baseline rate of 1.2 percent in the absence of common leaders. These results are not driven by closeness of product or labor market competition. Our findings are consistent with the increasing attention toward common leadership under Clayton Act Section 8.
+    </div>
+  </article>
+
 
   <div class="footer">
     Last updated: June 2025
@@ -358,6 +428,16 @@
 <script>
   const doomCode = "morkborg";
   let inputBuffer = "";
+
+  function toggleLightMode() {
+    document.body.classList.toggle('light');
+    const toggleBtn = document.querySelector('.toggle-btn');
+    if (document.body.classList.contains('light')) {
+      toggleBtn.textContent = 'Dark';
+    } else {
+      toggleBtn.textContent = 'Light';
+    }
+  }
 
   function toggleDoomMode() {
     document.body.classList.toggle('doom');
