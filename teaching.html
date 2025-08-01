@@ -183,6 +183,56 @@
       margin-right: 15px;
     }
 
+    /* Classes list styling */
+    .classes-list {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+
+    .classes-list li {
+      position: relative;
+      padding: 15px 0 15px 25px;
+      color: #a1a1aa;
+      font-size: 14px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .classes-list li:before {
+      content: "•";
+      color: #ffffff;
+      font-size: 20px;
+      position: absolute;
+      left: 0;
+      top: 12px;
+    }
+
+    .class-title {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .class-code {
+      color: #71717a;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .class-description {
+      color: #a1a1aa;
+      line-height: 1.5;
+    }
+
+    .class-semester {
+      color: #71717a;
+      font-size: 12px;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
     /* Light Mode Styles */
     .light {
       background-color: #ffffff !important;
@@ -214,7 +264,8 @@
       color: #000000 !important;
     }
 
-    .light .paper-title {
+    .light .paper-title,
+    .light .class-title {
       color: #000000 !important;
     }
 
@@ -241,16 +292,25 @@
       border-bottom-color: #000000 !important;
     }
 
-    .light .paper-abstract {
+    .light .paper-abstract,
+    .light .class-description {
       color: #333333 !important;
     }
 
-    .light .status {
+    .light .status,
+    .light .class-code,
+    .light .class-semester {
       color: #666666 !important;
     }
 
-    .light .presentation-list li {
+    .light .presentation-list li,
+    .light .classes-list li {
       color: #333333 !important;
+      border-bottom: 1px solid #eeeeee !important;
+    }
+
+    .light .classes-list li:before {
+      color: #000000 !important;
     }
 
     .light .presentation-year {
@@ -446,7 +506,8 @@
       color: #000000 !important;
     }
 
-    .doom .paper-title {
+    .doom .paper-title,
+    .doom .class-title {
       color: #fffd38 !important;
       font-family: Consolas, monospace !important;
     }
@@ -477,19 +538,27 @@
       background-color: #fffd38 !important;
     }
 
-    .doom .paper-abstract {
+    .doom .paper-abstract,
+    .doom .class-description {
       color: #fffd38 !important;
       font-family: Consolas, monospace !important;
     }
 
-    .doom .status {
+    .doom .status,
+    .doom .class-code,
+    .doom .class-semester {
       color: #888800 !important;
       font-family: Consolas, monospace !important;
     }
 
-    .doom .presentation-list li {
+    .doom .presentation-list li,
+    .doom .classes-list li {
       color: #fffd38 !important;
       font-family: Consolas, monospace !important;
+    }
+
+    .doom .classes-list li:before {
+      color: #fffd38 !important;
     }
 
     .doom .presentation-year {
@@ -517,11 +586,33 @@
 
   <img src="dore_teaching.jpg" alt="teaching" class="profile-image">
   <div class="image-reference">
-    <div>The Castle of Fear</div>
-    <div>Gustave Doré</div>
+    <div>The Confusion of Tongues</div>
+    <div>Gustave Doré, 1897</div>
   </div>
 
-  <h2>IN CONSTRUCTION</h2>
+  <h1>Teaching</h1>
+
+  <h2>Current Courses</h2>
+  <ul class="classes-list">
+    <li>
+      <div class="class-title">Introduction to Microeconomics</div>
+      <div class="class-code">ECON 101</div>
+      <div class="class-semester">Fall 2025</div>
+    </li>
+
+  </ul>
+
+  <h2>Previous Courses</h2>
+  <ul class="classes-list">
+    <li>
+      <div class="class-title">Undergraduate Game Theory</div>
+      <div class="class-code">ECON 521</div>
+      <div class="class-description">
+        Distinguised Teaching Assistant
+      </div>
+      <div class="class-semester">Fall 2023 </div>
+    </li>
+  </ul>
 
 <audio id="doomSound" preload="auto">
   <source src="https://cdn.pixabay.com/audio/2023/04/21/audio_613db5a3b6.mp3" type="audio/mp3">
@@ -578,7 +669,7 @@
   }
 
   function updateJiggle() {
-    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li");
+    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li, .classes-list, .classes-list li, .class-title");
 
     allElements.forEach(el => {
       el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
@@ -596,7 +687,7 @@
   }
 
   function clearJiggle() {
-    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li");
+    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li, .classes-list, .classes-list li, .class-title");
     allElements.forEach(el => {
       el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
     });

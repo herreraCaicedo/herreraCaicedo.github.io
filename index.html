@@ -425,7 +425,7 @@
 </audio>
 
 <script>
-  const doomCode = "morkborg";
+  const darkFort = atob("ZGFya21vZGU=");
   let inputBuffer = "";
 
   // ✅ Restore mode on load
@@ -482,7 +482,7 @@
 
     document.body.classList.remove("distort-1", "distort-2", "distort-3", "distort-4", "distort-5", "distort-6", "distort-7", "distort-8");
 
-    if (inputBuffer.length > 0 && doomCode.startsWith(inputBuffer)) {
+    if (inputBuffer.length > 0 && darkFort.startsWith(inputBuffer)) {
       const jiggleClass = `jiggle-${inputBuffer.length}`;
       const distortClass = `distort-${inputBuffer.length}`;
 
@@ -504,10 +504,10 @@
     const key = e.key.toLowerCase();
     if (key.length === 1 && key.match(/[a-z]/i)) {
       inputBuffer += key;
-      inputBuffer = inputBuffer.slice(-doomCode.length);
+      inputBuffer = inputBuffer.slice(-darkFort.length);
       updateJiggle();
 
-      if (inputBuffer === doomCode) {
+      if (inputBuffer === darkFort) {
         toggleDoomMode();
         inputBuffer = "";
         clearJiggle();
