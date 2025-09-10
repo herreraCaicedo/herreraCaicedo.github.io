@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
   %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
     %3Crect width='100' height='100' fill='%23b00020'/%3E
     %3Ctext x='50' y='75' font-size='70' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EH%3C/text%3E
   %3C/svg%3E">
   
-
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Teaching - Alejandro Herrera-Caicedo</title>
-
-  <!-- Gothic Title Font -->
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
@@ -36,42 +37,16 @@
       transition: all 0.4s ease-in-out;
     }
 
-    .profile-image {
-      width: 400px;
-      height: 280px;
-      border-radius: 8px;
-      object-fit: cover;
-      margin: 0 auto 10px auto;
-      display: none; /* Hidden by default */
-      border: 2px solid #fffd38;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .image-reference {
-      font-family: Consolas, monospace;
-      font-size: 10px;
-      color: #71717a;
-      text-align: center;
-      margin-bottom: 30px;
-      display: none; /* Hidden by default */
-    }
-
-
     h1 {
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 50px;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      transition: all 0.3s ease-in-out;
-    }
-
-    h2 {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 500;
-      color: #ffffff;
-      margin: 60px 0 30px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      transition: color 0.3s ease;
     }
 
     nav {
@@ -111,125 +86,76 @@
       border: 1px solid #ffffff;
     }
 
-    .paper {
-      margin-bottom: 50px;
-    }
-
-    .paper-title {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .paper-authors {
-      color: #a1a1aa;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .paper-authors a {
-      color: #ffffff;
-      text-decoration: none;
-      border-bottom: 1px solid #262626;
-    }
-
-    .paper-authors a:hover {
-      border-bottom-color: #ffffff;
-    }
-
-    .paper-link {
-      margin-bottom: 20px;
-    }
-
-    .paper-link a {
-      color: #a1a1aa;
-      font-size: 14px;
-      text-decoration: none;
-      border-bottom: 1px solid #262626;
-    }
-
-    .paper-link a:hover {
-      color: #ffffff;
-      border-bottom-color: #ffffff;
-    }
-
-    .paper-abstract {
-      color: #a1a1aa;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .status {
-      color: #71717a;
-      font-size: 12px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .presentation-list {
-      list-style: none;
-    }
-
-    .presentation-list li {
-      padding: 8px 0;
-      color: #a1a1aa;
-      font-size: 14px;
-    }
-
-    .presentation-year {
-      color: #71717a;
-      margin-right: 15px;
-    }
-
-    /* Classes list styling */
-    .classes-list {
-      list-style: none;
+    .section {
       margin-bottom: 40px;
     }
 
-    .classes-list li {
-      position: relative;
-      padding: 15px 0 15px 25px;
-      color: #a1a1aa;
-      font-size: 14px;
-      border-bottom: 1px solid #1a1a1a;
-    }
-
-    .classes-list li:before {
-      content: "•";
+    .section h2 {
       color: #ffffff;
-      font-size: 20px;
-      position: absolute;
-      left: 0;
-      top: 12px;
-    }
-
-    .class-title {
-      color: #ffffff;
+      font-size: 16px;
       font-weight: 500;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .course {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #262626;
+    }
+
+    .course:last-child {
+      border-bottom: none;
+    }
+
+    .course-title {
+      color: #ffffff;
       font-size: 15px;
+      font-weight: 500;
       margin-bottom: 5px;
     }
 
-    .class-code {
-      color: #71717a;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+
+    .course-prof {
+      color: #a1a1aa;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .course-prof a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid #262626;
+    }
+
+    .course-prof a:hover {
+      border-bottom-color: #ffffff;
+    }
+
+    .light .course-prof  {
+      color: #666666 !important;
+    }
+
+    .light .course-prof a {
+      color: #000000 !important;
+      border-bottom: 1px solid #cccccc !important;
+    }
+
+    .light .course-prof a:hover {
+      border-bottom-color: #000000 !important;
+    }
+
+    .course-description {
+      color: #a1a1aa;
+      font-size: 14px;
+      line-height: 1.5;
       margin-bottom: 8px;
     }
 
-    .class-description {
-      color: #a1a1aa;
-      line-height: 1.5;
-    }
-
-    .class-semester {
+    .course-semester {
       color: #71717a;
       font-size: 12px;
-      margin-top: 8px;
       font-style: italic;
     }
 
@@ -239,21 +165,9 @@
       color: #000000 !important;
     }
 
-    .light h1,
-    .light h2 {
+    .light h1 {
       color: #000000 !important;
     }
-
-    .light .profile-image {
-      border: 2px solid #000000 !important;
-      display: none !important; /* Hidden in light mode too */
-    }
-
-    .light .image-reference {
-      color: #666666 !important;
-      display: none !important; /* Hidden in light mode too */
-    }
-
 
     .light nav a {
       color: #666666 !important;
@@ -264,57 +178,22 @@
       color: #000000 !important;
     }
 
-    .light .paper-title,
-    .light .class-title {
+    .light .section h2,
+    .light .course-title {
       color: #000000 !important;
     }
 
-    .light .paper-authors {
-      color: #666666 !important;
-    }
-
-    .light .paper-authors a {
-      color: #000000 !important;
-      border-bottom: 1px solid #cccccc !important;
-    }
-
-    .light .paper-authors a:hover {
-      border-bottom-color: #000000 !important;
-    }
-
-    .light .paper-link a {
-      color: #666666 !important;
-      border-bottom: 1px solid #cccccc !important;
-    }
-
-    .light .paper-link a:hover {
-      color: #000000 !important;
-      border-bottom-color: #000000 !important;
-    }
-
-    .light .paper-abstract,
-    .light .class-description {
+    .light .course-prof,
+    .light .course-description {
       color: #333333 !important;
     }
 
-    .light .status,
-    .light .class-code,
-    .light .class-semester {
+    .light .course-semester {
       color: #666666 !important;
     }
 
-    .light .presentation-list li,
-    .light .classes-list li {
-      color: #333333 !important;
-      border-bottom: 1px solid #eeeeee !important;
-    }
-
-    .light .classes-list li:before {
-      color: #000000 !important;
-    }
-
-    .light .presentation-year {
-      color: #666666 !important;
+    .light .course {
+      border-bottom: 1px solid #cccccc !important;
     }
 
     .light .toggle-btn {
@@ -328,249 +207,10 @@
       border: 1px solid #000000 !important;
     }
 
-    /* Progressive body distortion effects */
-    .distort-1 { 
-      transform: skew(0.2deg, 0.1deg);
-      filter: contrast(1.05);
-    }
-    .distort-2 { 
-      transform: skew(0.4deg, 0.2deg);
-      filter: contrast(1.1) brightness(1.05);
-    }
-    .distort-3 { 
-      transform: skew(0.6deg, 0.3deg);
-      filter: contrast(1.15) brightness(1.1) saturate(1.1);
-    }
-    .distort-4 { 
-      transform: skew(0.8deg, 0.4deg);
-      filter: contrast(1.2) brightness(1.15) saturate(1.2);
-    }
-    .distort-5 { 
-      transform: skew(1deg, 0.5deg);
-      filter: contrast(1.25) brightness(1.2) saturate(1.3) hue-rotate(10deg);
-    }
-    .distort-6 { 
-      transform: skew(1.2deg, 0.6deg);
-      filter: contrast(1.3) brightness(1.25) saturate(1.4) hue-rotate(20deg);
-    }
-    .distort-7 { 
-      transform: skew(1.4deg, 0.7deg);
-      filter: contrast(1.35) brightness(1.3) saturate(1.5) hue-rotate(30deg);
-    }
-    .distort-8 { 
-      transform: skew(1.6deg, 0.8deg);
-      filter: contrast(1.4) brightness(1.35) saturate(1.6) hue-rotate(45deg);
-    }
-
-    /* ☠️ Doom Mode (MÖRK BORG) */
-    /* Progressive jiggle effects for all elements */
-    .jiggle-1 { 
-      animation: jiggle-1 0.3s infinite ease-in-out; 
-      filter: blur(0.1px) hue-rotate(10deg);
-    }
-    .jiggle-2 { 
-      animation: jiggle-2 0.25s infinite ease-in-out; 
-      filter: blur(0.2px) hue-rotate(20deg) contrast(1.1);
-    }
-    .jiggle-3 { 
-      animation: jiggle-3 0.2s infinite ease-in-out; 
-      filter: blur(0.3px) hue-rotate(30deg) contrast(1.2) saturate(1.2);
-    }
-    .jiggle-4 { 
-      animation: jiggle-4 0.15s infinite ease-in-out; 
-      filter: blur(0.4px) hue-rotate(45deg) contrast(1.3) saturate(1.3);
-    }
-    .jiggle-5 { 
-      animation: jiggle-5 0.12s infinite ease-in-out; 
-      filter: blur(0.6px) hue-rotate(60deg) contrast(1.4) saturate(1.4) brightness(1.1);
-    }
-    .jiggle-6 { 
-      animation: jiggle-6 0.1s infinite ease-in-out; 
-      filter: blur(0.8px) hue-rotate(90deg) contrast(1.5) saturate(1.5) brightness(1.2);
-    }
-    .jiggle-7 { 
-      animation: jiggle-7 0.08s infinite ease-in-out; 
-      filter: blur(1px) hue-rotate(120deg) contrast(1.6) saturate(1.6) brightness(1.3);
-    }
-    .jiggle-8 { 
-      animation: jiggle-8 0.06s infinite ease-in-out; 
-      filter: blur(1.5px) hue-rotate(180deg) contrast(1.8) saturate(1.8) brightness(1.4) invert(0.1);
-    }
-
-    @keyframes jiggle-1 {
-    0%   { transform: translateY(0) translateX(0); }
-    25%  { transform: translateY(-0.5px) translateX(0.5px); }
-    50%  { transform: translateY(0.5px) translateX(-0.5px); }
-    75%  { transform: translateY(-0.5px) translateX(0.5px); }
-    100% { transform: translateY(0) translateX(0); }
-    }
-
-    @keyframes jiggle-2 {
-    0%   { transform: translateY(0) translateX(0); }
-    25%  { transform: translateY(-0.8px) translateX(0.8px); }
-    50%  { transform: translateY(0.8px) translateX(-0.8px); }
-    75%  { transform: translateY(-0.8px) translateX(0.8px); }
-    100% { transform: translateY(0) translateX(0); }
-    }
-
-    @keyframes jiggle-3 {
-    0%   { transform: translateY(0) translateX(0); }
-    25%  { transform: translateY(-1px) translateX(1px); }
-    50%  { transform: translateY(1px) translateX(-1px); }
-    75%  { transform: translateY(-1px) translateX(1px); }
-    100% { transform: translateY(0) translateX(0); }
-    }
-
-    @keyframes jiggle-4 {
-    0%   { transform: translateY(0) translateX(0); }
-    25%  { transform: translateY(-1.3px) translateX(1.3px); }
-    50%  { transform: translateY(1.3px) translateX(-1.3px); }
-    75%  { transform: translateY(-1.3px) translateX(1.3px); }
-    100% { transform: translateY(0) translateX(0); }
-    }
-
-    @keyframes jiggle-5 {
-    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
-    25%  { transform: translateY(-1.5px) translateX(1.5px) rotate(0.5deg); }
-    50%  { transform: translateY(1.5px) translateX(-1.5px) rotate(-0.5deg); }
-    75%  { transform: translateY(-1.5px) translateX(1.5px) rotate(0.5deg); }
-    100% { transform: translateY(0) translateX(0) rotate(0deg); }
-    }
-
-    @keyframes jiggle-6 {
-    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
-    25%  { transform: translateY(-1.8px) translateX(1.8px) rotate(0.8deg); }
-    50%  { transform: translateY(1.8px) translateX(-1.8px) rotate(-0.8deg); }
-    75%  { transform: translateY(-1.8px) translateX(1.8px) rotate(0.8deg); }
-    100% { transform: translateY(0) translateX(0) rotate(0deg); }
-    }
-
-    @keyframes jiggle-7 {
-    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
-    25%  { transform: translateY(-2px) translateX(2px) rotate(1deg); }
-    50%  { transform: translateY(2px) translateX(-2px) rotate(-1deg); }
-    75%  { transform: translateY(-2px) translateX(2px) rotate(1deg); }
-    100% { transform: translateY(0) translateX(0) rotate(0deg); }
-    }
-
-    @keyframes jiggle-8 {
-    0%   { transform: translateY(0) translateX(0) rotate(0deg); }
-    25%  { transform: translateY(-2.5px) translateX(2.5px) rotate(1.5deg); }
-    50%  { transform: translateY(2.5px) translateX(-2.5px) rotate(-1.5deg); }
-    75%  { transform: translateY(-2.5px) translateX(2.5px) rotate(1.5deg); }
-    100% { transform: translateY(0) translateX(0) rotate(0deg); }
-    }
-
-    .doom {
-      background-color: #000000 !important;
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .profile-image {
-      display: block !important; /* Show only in doom mode */
-    }
-
-    .doom .image-reference {
-      display: block !important; /* Show only in doom mode */
-      color: #888800 !important;
-    }
-
-
-    .doom h1 {
-      font-family: 'UnifrakturCook', cursive !important;
-      font-size: 3rem !important;
-      color: #fffd38 !important;
-      text-shadow: 2px 2px 0 #ff00ff !important;
-      text-align: center !important; 
-    }
-
-    .doom h2 {
-      font-family: 'UnifrakturCook', cursive !important;
-      font-size: 1.5rem !important;
-      color: #fffd38 !important;
-      text-shadow: 1px 1px 0 #ff00ff !important;
-    }
-
-    .doom nav a {
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-      border: 1px solid #fffd38;
-      padding: 2px 6px;
-      text-transform: uppercase;
-    }
-
-    .doom nav a:hover,
-    .doom nav a.active {
-      background-color: #fffd38 !important;
-      color: #000000 !important;
-    }
-
-    .doom .paper-title,
-    .doom .class-title {
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .paper-authors {
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .paper-authors a {
-      color: #fffd38 !important;
-      border-bottom: 1px dashed #fffd38 !important;
-    }
-
-    .doom .paper-authors a:hover {
-      color: #000 !important;
-      background-color: #fffd38 !important;
-    }
-
-    .doom .paper-link a {
-      color: #fffd38 !important;
-      border-bottom: 1px dashed #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .paper-link a:hover {
-      color: #000 !important;
-      background-color: #fffd38 !important;
-    }
-
-    .doom .paper-abstract,
-    .doom .class-description {
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .status,
-    .doom .class-code,
-    .doom .class-semester {
-      color: #888800 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .presentation-list li,
-    .doom .classes-list li {
-      color: #fffd38 !important;
-      font-family: Consolas, monospace !important;
-    }
-
-    .doom .classes-list li:before {
-      color: #fffd38 !important;
-    }
-
-    .doom .presentation-year {
-      color: #888800 !important;
-    }
-
     @media (max-width: 640px) {
       body { padding: 60px 16px; }
       h1 { font-size: 2.2rem; }
       nav { gap: 10px; flex-wrap: wrap; }
-      .paper { margin-bottom: 40px; }
-      h2 { margin: 40px 0 20px 0; }
     }
   </style>
 </head>
@@ -578,57 +218,48 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="research.html" >Research</a>
+    <a href="research.html">Research</a>
     <a href="teaching.html" class="active">Teaching</a>
     <a href="CV.pdf">CV</a>
     <button class="toggle-btn" onclick="toggleLightMode()">Light</button>
   </nav>
 
-  <img src="dore_teaching.jpg" alt="teaching" class="profile-image">
-  <div class="image-reference">
-    <div>The Confusion of Tongues</div>
-    <div>Gustave Doré, 1897</div>
-  </div>
-
   <h1>Teaching</h1>
 
-  <h2>Current Courses</h2>
-  <ul class="classes-list">
-    <li>
-      <div class="class-title">Data Analytics for Economists</div>
-      <div class="class-code">ECON 570</div>
-      <div class="class-semester">Fall 2025</div>
-    </li>
-
-  </ul>
-
-  <h2>Previous Courses</h2>
-  <ul class="classes-list">
-    <li>
-      <div class="class-title">Undergraduate Game Theory</div>
-      <div class="class-code">ECON 521</div>
-      <div class="class-description">
-        Distinguished Teaching Assistant
+  <div class="section">
+    <h2>Current Courses</h2>
+    
+    <div class="course">
+      <div class="course-title">Data Analytics for Economists</div>
+      <div class="course-prof">
+        <a href="https://www.ashley-terese-swanson.com/" target="_blank" rel="noopener">
+          Prof. Ashley Swanson
+        </a>
       </div>
-      <div class="class-semester">Fall 2023 </div>
-    </li>
-  </ul>
+      <div class="course-semester">Fall 2025</div>
+    </div>
+  </div>
 
-<audio id="doomSound" preload="auto">
-  <source src="https://cdn.pixabay.com/audio/2023/04/21/audio_613db5a3b6.mp3" type="audio/mp3">
-</audio>
-
+  <div class="section">
+    <h2>Previous Courses</h2>
+    
+    <div class="course">
+      <div class="course-title">Undergraduate Game Theory</div>
+      <div class="course-prof">
+        <a href="https://www.benjamin-bernard.com/ "target="_blank" rel="noopener">
+          Prof. Benjamin Bernard
+        </a>
+      </div>
+      <div class="course-description">Distinguished Teaching Assistant</div>
+      <div class="course-semester">Fall 2023</div>
+    </div>
+  </div>
 
 <script>
-  const doomCode = "morkborg";
-  let inputBuffer = "";
-
-  // ✅ Restore mode on load
+  // Restore light mode preference on load
   window.addEventListener("DOMContentLoaded", () => {
     const savedMode = localStorage.getItem("mode");
-    if (savedMode === "doom") {
-      document.body.classList.add("doom");
-    } else if (savedMode === "light") {
+    if (savedMode === "light") {
       document.body.classList.add("light");
       const toggleBtn = document.querySelector('.toggle-btn');
       if (toggleBtn) toggleBtn.textContent = 'Dark';
@@ -641,72 +272,11 @@
     if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
 
     if (isLight) {
-      document.body.classList.remove("doom");
       localStorage.setItem("mode", "light");
     } else {
-      localStorage.removeItem("mode"); // fallback to default
+      localStorage.removeItem("mode");
     }
   }
-
-  function toggleDoomMode() {
-    document.body.classList.toggle('doom');
-    document.body.classList.remove('light');
-    localStorage.setItem("mode", document.body.classList.contains('doom') ? "doom" : "");
-
-    clearJiggle();
-    playDoomSound();
-
-    const toggleBtn = document.querySelector('.toggle-btn');
-    if (toggleBtn) toggleBtn.textContent = "Light";
-  }
-
-  function playDoomSound() {
-    const doomSound = document.getElementById("doomSound");
-    if (doomSound) {
-      doomSound.currentTime = 0;
-      doomSound.play().catch(() => {});
-    }
-  }
-
-  function updateJiggle() {
-    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li, .classes-list, .classes-list li, .class-title");
-
-    allElements.forEach(el => {
-      el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
-    });
-
-    document.body.classList.remove("distort-1", "distort-2", "distort-3", "distort-4", "distort-5", "distort-6", "distort-7", "distort-8");
-
-    if (inputBuffer.length > 0 && doomCode.startsWith(inputBuffer)) {
-      const jiggleClass = `jiggle-${inputBuffer.length}`;
-      const distortClass = `distort-${inputBuffer.length}`;
-
-      allElements.forEach(el => el.classList.add(jiggleClass));
-      document.body.classList.add(distortClass);
-    }
-  }
-
-  function clearJiggle() {
-    const allElements = document.querySelectorAll("h1, h2, nav, nav a, .paper, .paper-title, .paper-authors, .paper-link, .paper-abstract, .status, .presentation-list, .presentation-list li, .classes-list, .classes-list li, .class-title");
-    allElements.forEach(el => {
-      el.classList.remove("jiggle-1", "jiggle-2", "jiggle-3", "jiggle-4", "jiggle-5", "jiggle-6", "jiggle-7", "jiggle-8");
-    });
-
-    document.body.classList.remove("distort-1", "distort-2", "distort-3", "distort-4", "distort-5", "distort-6", "distort-7", "distort-8");
-  }
-
-  document.addEventListener("keydown", (e) => {
-    const key = e.key.toLowerCase();
-    if (key.length === 1 && key.match(/[a-z]/i)) {
-      inputBuffer += key;
-      inputBuffer = inputBuffer.slice(-doomCode.length);
-      updateJiggle();
-
-      if (inputBuffer === doomCode) {
-        toggleDoomMode();
-        inputBuffer = "";
-        clearJiggle();
-      }
-    }
-  });
 </script>
+</body>
+</html>
