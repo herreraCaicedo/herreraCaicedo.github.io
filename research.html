@@ -12,6 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Research - Alejandro Herrera-Caicedo</title>
+  <script>if (localStorage.getItem("mode") !== "dark") { document.documentElement.classList.add("light"); }</script>
 
   <style>
     * {
@@ -179,7 +180,8 @@
     }
 
     /* Light Mode Styles */
-    .light {
+    .light,
+    html.light body {
       background-color: #ffffff !important;
       color: #000000 !important;
     }
@@ -281,8 +283,10 @@
     <button class="toggle-btn" onclick="toggleLightMode()">Light</button>
   </nav>
 
+<h1>Working Papers</h1>
+
 <article class="paper">
-  
+
   <h3 class="paper-title">
     <a href="research/HerreraCaicedoJeffersPrager_CommonLeadershipCollusion_20251023.pdf" target="_blank" rel="noopener">Collusion through Common Leadership</a>
   </h3>
@@ -294,11 +298,13 @@
       <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
   </div>
   <div class="status">Conditionaly accepted, Journal of Political Economy</div>
+  <div class="status">Awards: Best Paper Award for Young Researchers, CRESSE Conference, 2025</div>
 
   <div class="paper-authors">
     Coverage: 
     <a href="https://www.nber.org/digest/202512/overlap-corporate-leadership-increases-collusion?page=1&perPage=50" target="_blank" rel="noopener">NBER Digest</a>, 
-    <a href="https://www.briefingbook.info/p/the-dangers-of-shared-corporate-leadership" target="_blank" rel="noopener">Briefing Book</a>
+    <a href="https://www.briefingbook.info/p/the-dangers-of-shared-corporate-leadership" target="_blank" rel="noopener">Briefing Book</a>,
+    <a href="https://www.promarket.org/2026/03/17/sharing-a-leader-with-your-rival-firm-increases-odds-of-collusion/" target="_blank" rel="noopener">Briefing Book</a>
   </div>
 
   <div class="paper-abstract">
@@ -315,13 +321,13 @@ This paper studies whether common leadership, defined as two firms sharing execu
   <article class="paper">
     
     <h3 class="paper-title">
-      Dollar store expansion and nutritional assistance
+      Supply Side Responses to Target Subsidy Programs: Evidence from SNAP ABAWD Waivers and Dollar Store Expansion
     </h3>
 
     <div class="paper-authors">
     With Inder A. Majumdar
     </div>
-    <div class="status">Ralph W. Marquis Field Paper Scholarship Award</div>
+    <div class="status">Awards: Culbertson Scholarship for Best Field Paper, UW–Madison, 2025</div>
 
   </article>
 
@@ -339,60 +345,23 @@ This paper studies whether common leadership, defined as two firms sharing execu
     </div>
   </article>
 
+  <article class="paper">
     <h3 class="paper-title">
      Market Power, Workforce Quality, and Public Hospitals
     </h3>
 
-
+     <div class="paper-authors">
+    With 
+        <a href="https://sites.google.com/view/leonardobonilla" target="_blank" rel="noopener">Leonardo Bonilla</a>
   </article>
 
-
-
-
 <script>
-  // Restore light mode preference on load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedMode = localStorage.getItem("mode");
-    if (savedMode === "light") {
-      document.body.classList.add("light");
-      const toggleBtn = document.querySelector('.toggle-btn');
-      if (toggleBtn) toggleBtn.textContent = 'Dark';
-    }
-  });
+  document.querySelector('.toggle-btn').textContent =
+    document.documentElement.classList.contains("light") ? 'Dark' : 'Light';
 
   function toggleLightMode() {
-    const isLight = document.body.classList.toggle('light');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
-
-    if (isLight) {
-      localStorage.setItem("mode", "light");
-    } else {
-      localStorage.removeItem("mode");
-    }
-  }
-
-    // Set light mode as default and restore preference on load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedMode = localStorage.getItem("mode");
-    const toggleBtn = document.querySelector('.toggle-btn');
-    
-    if (savedMode === "dark") {
-      // User previously chose dark mode
-      document.body.classList.remove("light");
-      if (toggleBtn) toggleBtn.textContent = 'Light';
-    } else {
-      // Default to light mode
-      document.body.classList.add("light");
-      if (toggleBtn) toggleBtn.textContent = 'Dark';
-    }
-  });
-
-  function toggleLightMode() {
-    const isLight = document.body.classList.toggle('light');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
-
+    const isLight = document.documentElement.classList.toggle('light');
+    document.querySelector('.toggle-btn').textContent = isLight ? 'Dark' : 'Light';
     if (isLight) {
       localStorage.removeItem("mode");
     } else {

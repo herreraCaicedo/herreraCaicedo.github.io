@@ -11,6 +11,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alejandro Herrera-Caicedo</title>
+  <script>if (localStorage.getItem("mode") !== "dark") { document.documentElement.classList.add("light"); }</script>
 
   <style>
     * {
@@ -112,7 +113,8 @@
     }
 
     /* Light Mode Styles */
-    .light {
+    .light,
+    html.light body {
       background-color: #ffffff !important;
       color: #000000 !important;
     }
@@ -160,6 +162,12 @@
       border: 1px solid #000000 !important;
     }
 
+    .intro-contact {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
     @media (max-width: 640px) {
       body { padding: 60px 16px; }
       h1 { font-size: 2.2rem; }
@@ -180,7 +188,7 @@
 
   <h1>Alejandro Herrera-Caicedo</h1>
 
-  <div class="intro-contact" style="display: flex; gap: 40px; align-items: flex-start;">
+  <div class="intro-contact">
     <div class="intro">
       <p>
         Fourth year student in Economics at UW-Madison studying industrial organization, labor economics, and public policy.
@@ -195,60 +203,22 @@
   </div>
 
   <div class="footer">
-    Last updated: January 2026
+    Last updated: April 2026
   </div>
 
 <script>
-  // Restore light mode preference on load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedMode = localStorage.getItem("mode");
-    if (savedMode === "light") {
-      document.body.classList.add("light");
-      const toggleBtn = document.querySelector('.toggle-btn');
-      if (toggleBtn) toggleBtn.textContent = 'Dark';
-    }
-  });
+  document.querySelector('.toggle-btn').textContent =
+    document.documentElement.classList.contains("light") ? 'Dark' : 'Light';
 
   function toggleLightMode() {
-    const isLight = document.body.classList.toggle('light');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
-
-    if (isLight) {
-      localStorage.setItem("mode", "light");
-    } else {
-      localStorage.removeItem("mode");
-    }
-  }
-
-  // Set light mode as default and restore preference on load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedMode = localStorage.getItem("mode");
-    const toggleBtn = document.querySelector('.toggle-btn');
-    
-    if (savedMode === "dark") {
-      // User previously chose dark mode
-      document.body.classList.remove("light");
-      if (toggleBtn) toggleBtn.textContent = 'Light';
-    } else {
-      // Default to light mode
-      document.body.classList.add("light");
-      if (toggleBtn) toggleBtn.textContent = 'Dark';
-    }
-  });
-
-  function toggleLightMode() {
-    const isLight = document.body.classList.toggle('light');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    if (toggleBtn) toggleBtn.textContent = isLight ? 'Dark' : 'Light';
-
+    const isLight = document.documentElement.classList.toggle('light');
+    document.querySelector('.toggle-btn').textContent = isLight ? 'Dark' : 'Light';
     if (isLight) {
       localStorage.removeItem("mode");
     } else {
       localStorage.setItem("mode", "dark");
     }
   }
-  
 </script>
 </body>
 </html>
