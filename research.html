@@ -8,32 +8,29 @@
     %3Ctext x='50' y='75' font-size='70' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EH%3C/text%3E
   %3C/svg%3E">
   
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Research - Alejandro Herrera-Caicedo</title>
   <script>if (localStorage.getItem("mode") !== "dark") { document.documentElement.classList.add("light"); }</script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      background-color: transparent;
     }
 
     body {
       background-color: #0a0a0a;
       color: #e5e5e5;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 700px;
+      max-width: 750px;
+      min-height: 100vh;
       margin: 0 auto;
-      padding: 80px 20px;
+      zoom: 1.4;
       line-height: 1.6;
       font-size: 15px;
       transition: all 0.4s ease-in-out;
@@ -47,7 +44,7 @@
       font-weight: 500;
       letter-spacing: 0.3px;
       line-height: 1.3;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      text-shadow: 0 1px 4px rgba(0,0,0,.15);
       transition: color 0.3s ease;
     }
 
@@ -73,10 +70,7 @@
       transition: color 0.2s ease;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #ffffff;
-    }
+    nav a:hover, nav a.active { color: #ffffff; }
 
     .toggle-btn {
       margin-left: auto;
@@ -91,190 +85,96 @@
       transition: all 0.2s ease;
     }
 
-    .toggle-btn:hover {
-      background-color: #ffffff;
-      color: #000;
-      border: 1px solid #ffffff;
+    .toggle-btn:hover { background-color: #ffffff; color: #000; border: 1px solid #ffffff; }
+
+    .paper { margin-bottom: 50px; }
+
+    .paper-title { font-size: 1.1rem; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+
+    .paper-title a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #262626; }
+    .paper-title a:hover { border-bottom-color: #ffffff; }
+
+    .paper-authors { color: #a1a1aa; margin-bottom: 8px; font-size: 14px; }
+
+    .paper-authors a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #262626; }
+    .paper-authors a:hover { border-bottom-color: #ffffff; }
+
+    .paper-link { margin-bottom: 20px; }
+    .paper-link a { color: #a1a1aa; font-size: 14px; text-decoration: none; border-bottom: 1px solid #262626; }
+    .paper-link a:hover { color: #ffffff; border-bottom-color: #ffffff; }
+
+    .paper-abstract { color: #a1a1aa; line-height: 1.5; font-size: 14px; }
+
+    .status { color: #71717a; font-size: 12px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .presentation-list { list-style: none; }
+    .presentation-list li { padding: 8px 0; color: #a1a1aa; font-size: 14px; }
+    .presentation-year { color: #71717a; margin-right: 15px; }
+
+    /* Light Mode */
+    .content-panel {
+      position: relative;
+      background-color: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 20px;
     }
 
-    .paper {
-      margin-bottom: 50px;
-    }
-
-    .paper-title {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .paper-title a{
-      color: #ffffff;
-      text-decoration: none;
-      border-bottom: 1px solid #262626;
-    }
-
-    .paper-title a:hover{
-      border-bottom-color: #ffffff;
-    }
-
-    .paper-authors {
-      color: #a1a1aa;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .paper-authors a {
-      color: #ffffff;
-      text-decoration: none;
-      border-bottom: 1px solid #262626;
-    }
-
-    .paper-authors a:hover {
-      border-bottom-color: #ffffff;
-    }
-
-    .paper-link {
-      margin-bottom: 20px;
-    }
-
-    .paper-link a {
-      color: #a1a1aa;
-      font-size: 14px;
-      text-decoration: none;
-      border-bottom: 1px solid #262626;
-    }
-
-    .paper-link a:hover {
-      color: #ffffff;
-      border-bottom-color: #ffffff;
-    }
-
-    .paper-abstract {
-      color: #a1a1aa;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .status {
-      color: #71717a;
-      font-size: 12px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .presentation-list {
-      list-style: none;
-    }
-
-    .presentation-list li {
-      padding: 8px 0;
-      color: #a1a1aa;
-      font-size: 14px;
-    }
-
-    .presentation-year {
-      color: #71717a;
-      margin-right: 15px;
-    }
-
-    /* Light Mode Styles */
-    .light,
-    html.light body {
-      background-color: #ffffff !important;
-      color: #000000 !important;
-    }
-
-    .light h1,
-    .light h2 {
-      color: #000000 !important;
-    }
-
-    .light nav a {
-      color: #666666 !important;
-    }
-
-    .light nav a:hover,
-    .light nav a.active {
-      color: #000000 !important;
-    }
-
-    .light .paper-title {
-      color: #000000 !important;
-    }
-
-    .light .paper-title a{
-      color: #000000 !important;
-      border-bottom: 1px solid #cccccc !important;
-    }
-
-    .light .paper-title a:hover{
-      border-bottom-color: #000000 !important;
-    }
-
-    .light .paper-authors {
-      color: #666666 !important;
-    }
-
-    .light .paper-authors a {
-      color: #000000 !important;
-      border-bottom: 1px solid #cccccc !important;
-    }
-
-    .light .paper-authors a:hover {
-      border-bottom-color: #000000 !important;
-    }
-
-    .light .paper-link a {
-      color: #666666 !important;
-      border-bottom: 1px solid #cccccc !important;
-    }
-
-    .light .paper-link a:hover {
-      color: #000000 !important;
-      border-bottom-color: #000000 !important;
-    }
-
-    .light .paper-abstract {
-      color: #333333 !important;
-    }
-
-    .light .status {
-      color: #666666 !important;
-    }
-
-    .light .presentation-list li {
-      color: #333333 !important;
-    }
-
-    .light .presentation-year {
-      color: #666666 !important;
-    }
-
-    .light .toggle-btn {
-      background-color: #ffffff !important;
-      color: #000000 !important;
-      border: 1px solid #000000 !important;
-    }
-
-    .light .toggle-btn:hover {
-      background-color: #000000 !important;
-      color: #ffffff !important;
-      border: 1px solid #000000 !important;
-    }
+    .light, html.light body { background-color: #ffffff !important; color: #000000 !important; }
+    .light .content-panel { background-color: #ffffff !important; }
+    .light h1, .light h2 { color: #000000 !important; }
+    .light nav a { color: #666666 !important; }
+    .light nav a:hover, .light nav a.active { color: #000000 !important; }
+    .light .paper-title { color: #000000 !important; }
+    .light .paper-title a { color: #000000 !important; border-bottom: 1px solid #cccccc !important; }
+    .light .paper-title a:hover { border-bottom-color: #000000 !important; }
+    .light .paper-authors { color: #666666 !important; }
+    .light .paper-authors a { color: #000000 !important; border-bottom: 1px solid #cccccc !important; }
+    .light .paper-authors a:hover { border-bottom-color: #000000 !important; }
+    .light .paper-link a { color: #666666 !important; border-bottom: 1px solid #cccccc !important; }
+    .light .paper-link a:hover { color: #000000 !important; border-bottom-color: #000000 !important; }
+    .light .paper-abstract { color: #333333 !important; }
+    .light .status { color: #666666 !important; }
+    .light .presentation-list li { color: #333333 !important; }
+    .light .presentation-year { color: #666666 !important; }
+    .light .toggle-btn { background-color: #ffffff !important; color: #000000 !important; border: 1px solid #000000 !important; }
+    .light .toggle-btn:hover { background-color: #000000 !important; color: #ffffff !important; border: 1px solid #000000 !important; }
+    .footer { margin-top: auto; padding-top: 60px; font-size: 12px; color: #71717a; text-transform: uppercase; }
+    .light .footer { color: #666666 !important; }
 
     @media (max-width: 640px) {
-      body { padding: 60px 16px; }
+      .content-panel { padding: 60px 16px; }
       h1 { font-size: 2.2rem; }
       nav { gap: 10px; flex-wrap: wrap; }
       .paper { margin-bottom: 40px; }
       h2 { margin: 40px 0 20px 0; }
     }
+
+    body.dither-active { background-color: transparent !important; }
+
+    /* Dither background */
+    #dither-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      image-rendering: pixelated;
+      background-color: #000;
+    }
+    #dither-bg.visible { opacity: 1; }
+    html.light #dither-bg { filter: invert(1); }
   </style>
 </head>
 <body>
 
+  <canvas id="dither-bg"></canvas>
+
+  <div class="content-panel">
   <nav>
     <a href="index.html">Home</a>
     <a href="research.html" class="active">Research</a>
@@ -286,74 +186,62 @@
 <h1>Working Papers</h1>
 
 <article class="paper">
-
   <h3 class="paper-title">
     <a href="research/HerreraCaicedoJeffersPrager_CommonLeadershipCollusion_20251023.pdf" target="_blank" rel="noopener">Collusion through Common Leadership</a>
   </h3>
-
   <div class="paper-authors">
-  With 
-      <a href="https://sites.google.com/view/jessicajeffers/home?authuser=0" target="_blank" rel="noopener">Jessica Jeffers</a>
-  & 
-      <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
+    With 
+    <a href="https://sites.google.com/view/jessicajeffers/home?authuser=0" target="_blank" rel="noopener">Jessica Jeffers</a>
+    & 
+    <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
   </div>
-  <div class="status">Conditionaly accepted, Journal of Political Economy</div>
+  <div class="status">Conditionally accepted, Journal of Political Economy</div>
   <div class="status">Awards: Best Paper Award for Young Researchers, CRESSE Conference, 2025</div>
-
   <div class="paper-authors">
     Coverage: 
     <a href="https://www.nber.org/digest/202512/overlap-corporate-leadership-increases-collusion?page=1&perPage=50" target="_blank" rel="noopener">NBER Digest</a>, 
     <a href="https://www.briefingbook.info/p/the-dangers-of-shared-corporate-leadership" target="_blank" rel="noopener">Briefing Book</a>,
     <a href="https://www.promarket.org/2026/03/17/sharing-a-leader-with-your-rival-firm-increases-odds-of-collusion/" target="_blank" rel="noopener">Promarket</a>
   </div>
-
   <div class="paper-abstract">
-This paper studies whether common leadership, defined as two firms sharing executives or board directors, contributes to collusion. Using an explicit measure of labor market collusion from unsealed court evidence, we find that the probability of collusion between two firms increases by 11 percentage points after the onset of common leadership, a ninefold increase over the baseline rate. These results are not driven by closeness of product or labor market competition. Our findings are consistent with the increasing attention toward common leadership under Clayton Act Section 8.
+    This paper studies whether common leadership, defined as two firms sharing executives or board directors, contributes to collusion. Using an explicit measure of labor market collusion from unsealed court evidence, we find that the probability of collusion between two firms increases by 11 percentage points after the onset of common leadership, a ninefold increase over the baseline rate. These results are not driven by closeness of product or labor market competition. Our findings are consistent with the increasing attention toward common leadership under Clayton Act Section 8.
   </div>
 </article>
 
-  <div style="margin-top: 4rem;"></div>
+<div style="margin-top: 4rem;"></div>
 
+<h1>Work in Progress</h1>
 
+<article class="paper">
+  <h3 class="paper-title">
+    Supply Side Responses to Target Subsidy Programs: Evidence from SNAP ABAWD Waivers and Dollar Store Expansion
+  </h3>
+  <div class="paper-authors">With Inder A. Majumdar</div>
+  <div class="status">Awards: Ralph W. Marquis Fellowship for Best Field Paper, UW–Madison, 2025</div>
+</article>
 
-  <h1>Work in Progress </h1>
-
-  <article class="paper">
-    
-    <h3 class="paper-title">
-      Supply Side Responses to Target Subsidy Programs: Evidence from SNAP ABAWD Waivers and Dollar Store Expansion
-    </h3>
-
-    <div class="paper-authors">
-    With Inder A. Majumdar
-    </div>
-    <div class="status">Awards: Ralph W. Marquis Fellowship for Best Field Paper, UW–Madison, 2025</div>
-
-  </article>
-
-  <article class="paper">
-    
-    <h3 class="paper-title">
-      Labor Market Collusion and Careers
-    </h3>
-
-    <div class="paper-authors">
+<article class="paper">
+  <h3 class="paper-title">Labor Market Collusion and Careers</h3>
+  <div class="paper-authors">
     With 
-        <a href="https://sites.google.com/view/jessicajeffers/home?authuser=0" target="_blank" rel="noopener">Jessica Jeffers</a>
+    <a href="https://sites.google.com/view/jessicajeffers/home?authuser=0" target="_blank" rel="noopener">Jessica Jeffers</a>
     & 
-        <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
-    </div>
-  </article>
+    <a href="https://sites.google.com/view/eprager/home?authuser=0" target="_blank" rel="noopener">Elena Prager</a>
+  </div>
+</article>
 
-  <article class="paper">
-    <h3 class="paper-title">
-     Market Power, Workforce Quality, and Public Hospitals
-    </h3>
-
-     <div class="paper-authors">
+<article class="paper">
+  <h3 class="paper-title">Market Power, Workforce Quality, and Public Hospitals</h3>
+  <div class="paper-authors">
     With 
-        <a href="https://sites.google.com/view/leonardobonilla" target="_blank" rel="noopener">Leonardo Bonilla</a>
-  </article>
+    <a href="https://sites.google.com/view/leonardobonilla" target="_blank" rel="noopener">Leonardo Bonilla</a>
+  </div>
+</article>
+
+<div class="footer">
+  Last updated: April 2026
+</div>
+</div>
 
 <script>
   document.querySelector('.toggle-btn').textContent =
@@ -362,12 +250,96 @@ This paper studies whether common leadership, defined as two firms sharing execu
   function toggleLightMode() {
     const isLight = document.documentElement.classList.toggle('light');
     document.querySelector('.toggle-btn').textContent = isLight ? 'Dark' : 'Light';
-    if (isLight) {
-      localStorage.removeItem("mode");
-    } else {
-      localStorage.setItem("mode", "dark");
-    }
+    if (isLight) { localStorage.removeItem("mode"); }
+    else { localStorage.setItem("mode", "dark"); }
   }
+
+  // ── Dither wave ──────────────────────────────────────────────────────────────
+  const ditherCanvas = document.getElementById('dither-bg');
+  let ditherRunning = false, ditherT = parseFloat(localStorage.getItem("ditherT")) || 1, ditherRAF = null;
+  let NX, NY, xs, ys, f, edge, px, img, ctx;
+
+  const bayer = [
+    0,32,8,40,2,34,10,42,
+    48,16,56,24,50,18,58,26,
+    12,44,4,36,14,46,6,38,
+    60,28,52,20,62,30,54,22,
+    3,35,11,43,1,33,9,41,
+    51,19,59,27,49,17,57,25,
+    15,47,7,39,13,45,5,37,
+    63,31,55,23,61,29,53,21
+  ].map(v => v / 63);
+
+  function initDither() {
+    NX = ditherCanvas.width; NY = ditherCanvas.height;
+    ctx = ditherCanvas.getContext('2d');
+    img = ctx.createImageData(NX, NY); px = img.data;
+    xs = new Float32Array(NX); ys = new Float32Array(NY);
+    for (let i = 0; i < NX; i++) xs[i] = -1.5 + 3 * i / (NX - 1);
+    for (let j = 0; j < NY; j++) ys[j] = -1.0 + 2 * j / (NY - 1);
+    f = new Float32Array(NX * NY); edge = new Float32Array(NX * NY);
+  }
+
+  function resizeDither() {
+    ditherCanvas.width  = Math.ceil(window.innerWidth  / 2);
+    ditherCanvas.height = Math.ceil(window.innerHeight / 2);
+    initDither();
+  }
+
+  const cl = (x, lo=0, hi=1) => x < lo ? lo : x > hi ? hi : x;
+
+  function renderDither(t) {
+    const c1x=Math.cos(t*.055)*.55, c1y=Math.sin(t*.042)*.40;
+    const c2x=Math.cos(t*.037+2)*.50, c2y=Math.sin(t*.060+1)*.45;
+    const ph1=t*.08, ph2=t*.065, ph3=t*.04;
+    for (let j=0;j<NY;j++) {
+      const y=ys[j], dy1=y-c1y, dy2=y-c2y;
+      const sy28=Math.sin(y*2.8+ph3), sy7=y*7.0;
+      for (let i=0;i<NX;i++) {
+        const x=xs[i];
+        const R1=Math.sqrt((x-c1x)**2+dy1**2), R2=Math.sqrt((x-c2x)**2+dy2**2);
+        const w=0.42*Math.sin(R1*11-ph1)+0.30*Math.sin(R2*9-ph2)
+               +0.16*Math.sin(x*5.5+sy28*2+ph3)
+               +0.10*Math.sin(sy7+Math.cos(x*2.4+ph3*.5)*1.6)
+               +0.06*Math.sin((x+y)*6+ph2*.4);
+        let v=cl(w*.5+.5); v=cl((v-.2)/.6);
+        f[j*NX+i]=v;
+      }
+    }
+    for (let j=0;j<NY;j++) for (let i=0;i<NX;i++) {
+      const ip=i?i-1:0, ip2=i<NX-1?i+1:NX-1;
+      const jp=j?j-1:0, jp2=j<NY-1?j+1:NY-1;
+      const gx=f[j*NX+ip2]-f[j*NX+ip], gy=f[jp2*NX+i]-f[jp*NX+i];
+      edge[j*NX+i]=cl((Math.sqrt(gx*gx+gy*gy)-.18)/.20);
+    }
+    for (let j=0;j<NY;j++) for (let i=0;i<NX;i++) {
+      const thr=bayer[(j%8)*8+(i%8)];
+      const bit=(f[j*NX+i]>thr)||(edge[j*NX+i]>0.5);
+      const v=bit?0:255, k=(j*NX+i)*4;
+      px[k]=px[k+1]=px[k+2]=v; px[k+3]=255;
+    }
+    ctx.putImageData(img,0,0);
+  }
+
+  function ditherLoop() {
+    if (!ditherRunning) return;
+    renderDither(ditherT); ditherT += 0.3;
+    ditherRAF = requestAnimationFrame(ditherLoop);
+  }
+
+  function startDither() {
+    if (!NX) resizeDither();
+    ditherRunning = true;
+    ditherCanvas.classList.add('visible');
+    document.body.classList.add('dither-active');
+    ditherLoop();
+  }
+
+  resizeDither();
+  if (localStorage.getItem("dither") === "1") startDither();
+
+  window.addEventListener('resize', () => { if (ditherRunning) resizeDither(); });
+  window.addEventListener('beforeunload', () => { localStorage.setItem("ditherT", ditherT); });
 </script>
 </body>
 </html>

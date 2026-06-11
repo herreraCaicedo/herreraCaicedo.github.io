@@ -1,0 +1,110 @@
+<canvas id="c" style="display:block;width:100%;image-rendering:pixelated;"></canvas>
+<div style="display:flex;align-items:center;gap:12px;padding:8px 0;font-size:13px;color:var(--color-text-secondary);">
+  <button id="btn" style="font-size:13px;padding:4px 12px;">Pause</button>
+  <span>Frame <span id="fnum">1</span></span>
+  <label style="margin-left:auto;">Speed
+    <select id="spd" style="margin-left:6px;font-size:13px;">
+      <option value="2">0.5×</option>
+      <option value="1" selected>1×</option>
+      <option value="0">2×</option>
+    </select>
+  </label>
+</div>
+<script>
+const NX=1400,NY=934;
+const c=document.getElementById('c');
+c.width=NX;c.height=NY;
+const ctx=c.getContext('2d');
+const img=ctx.createImageData(NX,NY);
+const px=img.data;
+
+const xs=new Float32Array(NX),ys=new Float32Array(NY);
+for(let i=0;i<NX;i++) xs[i]=-1.5+3*i/(NX-1);
+for(let j=0;j<NY;j++) ys[j]=-1.0+2*j/(NY-1);
+
+const f=new Float32Array(NX*NY);
+const edge=new Float32Array(NX*NY);
+
+const bayer=[
+  0,32,8,40,2,34,10,42,
+  48,16,56,24,50,18,58,26,
+  12,44,4,36,14,46,6,38,
+  60,28,52,20,62,30,54,22,
+  3,35,11,43,1,33,9,41,
+  51,19,59,27,49,17,57,25,
+  15,47,7,39,13,45,5,37,
+  63,31,55,23,61,29,53,21
+].map(v=>v/63);
+
+const cl=(x,lo=0,hi=1)=>x<lo?lo:x>hi?hi:x;
+
+function render(t){
+  const c1x=Math.cos(t*.055)*.55, c1y=Math.sin(t*.042)*.40;
+  const c2x=Math.cos(t*.037+2)*.50, c2y=Math.sin(t*.060+1)*.45;
+  const ph1=t*.08, ph2=t*.065, ph3=t*.04;
+
+  for(let j=0;j<NY;j++){
+    const y=ys[j];
+    const dy1=y-c1y, dy2=y-c2y;
+    const sy28=Math.sin(y*2.8+ph3);
+    const sy7=y*7.0;
+    for(let i=0;i<NX;i++){
+      const x=xs[i];
+      const R1=Math.sqrt((x-c1x)**2+dy1**2);
+      const R2=Math.sqrt((x-c2x)**2+dy2**2);
+      const w=0.42*Math.sin(R1*11 - ph1)
+             +0.30*Math.sin(R2*9 - ph2)
+             +0.16*Math.sin(x*5.5+sy28*2+ph3)
+             +0.10*Math.sin(sy7+Math.cos(x*2.4+ph3*.5)*1.6)
+             +0.06*Math.sin((x+y)*6+ph2*.4);
+      let v=cl(w*.5+.5);
+      v=cl((v-.2)/.6);
+      f[j*NX+i]=v;
+    }
+  }
+
+  for(let j=0;j<NY;j++){
+    for(let i=0;i<NX;i++){
+      const ip=i?i-1:0, ip2=i<NX-1?i+1:NX-1;
+      const jp=j?j-1:0, jp2=j<NY-1?j+1:NY-1;
+      const gx=f[j*NX+ip2]-f[j*NX+ip];
+      const gy=f[jp2*NX+i]-f[jp*NX+i];
+      edge[j*NX+i]=cl((Math.sqrt(gx*gx+gy*gy)-.18)/.20);
+    }
+  }
+
+  for(let j=0;j<NY;j++){
+    for(let i=0;i<NX;i++){
+      const thr=bayer[(j%8)*8+(i%8)];
+      const bit=(f[j*NX+i]>thr)||(edge[j*NX+i]>0.5);
+      const v=bit?0:255;
+      const k=(j*NX+i)*4;
+      px[k]=px[k+1]=px[k+2]=v;
+      px[k+3]=255;
+    }
+  }
+  ctx.putImageData(img,0,0);
+}
+
+let t=1,running=true,skip=0;
+const btn=document.getElementById('btn');
+const fnum=document.getElementById('fnum');
+const spd=document.getElementById('spd');
+
+btn.addEventListener('click',()=>{
+  running=!running;
+  btn.textContent=running?'Pause':'Play';
+  if(running) loop();
+});
+
+function loop(){
+  if(!running) return;
+  if(skip>0){skip--;requestAnimationFrame(loop);return;}
+  render(t);
+  fnum.textContent=t;
+  t+=1;
+  skip=parseInt(spd.value);
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
